@@ -1,0 +1,9 @@
+name: simple-zip
+description: Simple zip
+version: 0.0.1
+keywords:
+  - zip
+  - archiver
+endpoints:
+  archive:
+    description: Archive file
