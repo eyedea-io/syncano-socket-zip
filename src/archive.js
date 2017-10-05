@@ -4,7 +4,7 @@ import Syncano from 'syncano-server'
 
 export default (ctx) => {
   const {response, logger} = new Syncano(ctx)
-  const {info, warning, error} = logger('archive')
+  const {info, error} = logger('archive')
 
   const zipFileName = `${ctx.args.filename}.zip`
   const output = fs.createWriteStream(zipFileName)
@@ -33,16 +33,10 @@ export default (ctx) => {
     })
 
     // good practice to catch warnings (ie stat failures and other non-blocking errors)
-    archive.on('warning', (err) => {
-      warning(err)
-      reject(err)
-    })
+    archive.on('warning', (err) => reject(err))
 
     // good practice to catch this error explicitly
-    archive.on('error', (err) => {
-      error(err)
-      reject(err)
-    })
+    archive.on('error', (err) => reject(err))
 
     archive.append(ctx.args.file, { name: ctx.args.filename })
     archive.finalize()
@@ -52,6 +46,7 @@ export default (ctx) => {
     response(fs.readFileSync(zipFileName), 200, 'application/octet-stream')
   })
   .catch((message) => {
+    error(message)
     response.json({message}, 400)
   })
 }
