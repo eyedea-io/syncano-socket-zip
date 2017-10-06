@@ -26,6 +26,5 @@ endpoints:
         description: Zip generation failed
         exit_code: 400
         parameters:
-          example:
-            message:
-              type: string
+          message:
+            type: string
