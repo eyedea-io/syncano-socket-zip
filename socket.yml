@@ -7,3 +7,25 @@ keywords:
 endpoints:
   archive:
     description: Archive file
+    parameters:
+      file:
+        type: file
+        description: File to archive
+      filename:
+        type: string
+        descritption: Name of the file
+    response:
+      success:
+        mimetype: application/octet-stream
+        description: Zip successfuly generated
+        parameters:
+          message:
+            type: string
+      fail:
+        mimetype: application/json
+        description: Zip generation failed
+        exit_code: 400
+        parameters:
+          example:
+            message:
+              type: string
