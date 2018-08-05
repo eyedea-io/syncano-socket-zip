@@ -1,8 +1,8 @@
 {
   "name": "@eyedea-sockets/zip",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "public": true,
-  "description": "Creating ZIP archives",
+  "description": "Syncano Socket for creating ZIP archive",
   "author": "Eyedea <hello@eyedea.io> (https://eyedea.io)",
   "repository": "https://github.com/eyedea-io/syncano-socket-zip.git",
   "license": "MIT",

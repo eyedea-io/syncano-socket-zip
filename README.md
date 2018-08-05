@@ -24,6 +24,10 @@ npx s deploy
 Use it:
 
 ```js
+import Syncano from '@syncano/client'
+
+const s = new Syncano(<instaneName>)
+
 // FormData with the file
 const form = new FormData()
 form.append('file', fs.createReadStream(fileLocalPath))
