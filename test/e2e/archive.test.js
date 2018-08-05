@@ -7,6 +7,7 @@ import * as mockArchiver from 'archiver'
 import {run} from '@syncano/test'
 
 describe('send', () => {
+  const zipFile = path.join('test', '.results', 'test.zip')
   const args = {
     file: fs.readFileSync('./test/assets/file.txt'),
     filename: 'file.txt'
@@ -14,8 +15,8 @@ describe('send', () => {
 
   it('one text file', async () => {
     const result = await run('archive', {args})
-    fs.writeFileSync(path.join('test', '.results', 'test.zip'), result.data)
-    fs.createReadStream('test.zip')
+    fs.writeFileSync(zipFile, result.data)
+    fs.createReadStream(zipFile)
       .pipe(unzip.Parse())
       .on('entry', (entry) => {
         expect(entry).toHaveProperty('path', args.filename)
