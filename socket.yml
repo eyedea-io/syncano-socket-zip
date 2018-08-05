@@ -1,30 +1,31 @@
-name: simple-zip
-description: Simple zip
-version: 0.0.5
-keywords:
-  - zip
-  - archiver
+name: zip
 endpoints:
   archive:
     description: Archive file
-    parameters:
-      file:
-        type: file
-        description: File to archive
-      filename:
-        type: string
-        descritption: Name of the file
-    response:
+    inputs:
+      required:
+        - file
+        - filename
+      properties:
+        file:
+          description: File to archive
+        filename:
+          type: string
+          descritption: Name of the file
+      errorMessage:
+        required:
+          file: The file field is required.
+          filename: The filename field is required.
+    outputs:
       success:
         mimetype: application/octet-stream
         description: Zip successfuly generated
-        parameters:
+        properties:
           message:
             type: string
       fail:
-        mimetype: application/json
         description: Zip generation failed
         exit_code: 400
-        parameters:
+        properties:
           message:
             type: string
