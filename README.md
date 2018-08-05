@@ -8,7 +8,7 @@
 
 Main Socket features:
 
-* **zip/generate** — generate zip file from HTML
+* **zip/archive** — create zip archive
 
 ## Getting Started
 
