@@ -14,7 +14,7 @@ describe('send', () => {
 
   it('one text file', async () => {
     const result = await run('archive', {args})
-    fs.writeFileSync(path.join('test', '.results', 'test.pdf'), result.data)
+    fs.writeFileSync(path.join('test', '.results', 'test.zip'), result.data)
     fs.createReadStream('test.zip')
       .pipe(unzip.Parse())
       .on('entry', (entry) => {
