@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@eyedea/syncano": "0.2.0",
-    "archiver": "^2.0.3",
+    "archiver": "^4.0.2",
     "unzip": "^0.1.11"
   },
   "scripts": {
