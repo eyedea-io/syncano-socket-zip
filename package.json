@@ -20,7 +20,8 @@
   "dependencies": {
     "@eyedea/syncano": "0.2.0",
     "archiver": "^2.0.3",
-    "unzip": "^0.1.11"
+    "unzip": "^0.1.11",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "build": "npm run build:src && npm run build:env",
@@ -32,7 +33,9 @@
     "test:unit": "NODE_ENV=test jest unit/.*\\.test\\.js",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
     "test:audit": "npm audit",
-    "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts"
+    "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.55",
@@ -98,5 +101,6 @@
         }
       ]
     ]
-  }
+  },
+  "snyk": true
 }
